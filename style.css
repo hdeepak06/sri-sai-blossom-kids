@@ -1508,6 +1508,11 @@ h1, h2, h3, h4, h5, h6 {
   padding: 1.5rem;
 }
 
+.gallery-card__img--students {
+  object-fit: cover;
+  object-position: center 28%;
+}
+
 .gallery-card__inner:hover .gallery-card__img,
 .gallery-card__inner:focus .gallery-card__img {
   transform: scale(1.08);

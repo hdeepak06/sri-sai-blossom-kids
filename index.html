@@ -524,8 +524,7 @@
           </div>
           <h2 class="section-heading">Classroom Activities &amp; Campus Moments</h2>
           <p class="section-subheading">
-            Authentic photographs of Sri Sai Blossom Kids in Hosapete, including our real Environment Day celebration
-            and campus life.
+            Authentic photographs of Sri Sai Blossom Kids in Hosapete, including our students, classroom activities, and campus life.
           </p>
         </div>
 
@@ -571,18 +570,31 @@
         <div class="gallery__filter-bar mt-4" role="tablist" aria-label="Gallery category filters" data-reveal>
           <button type="button" class="gallery-tab active" data-filter="all" role="tab" aria-selected="true">All
             Photographs</button>
+          <button type="button" class="gallery-tab" data-filter="students" role="tab" aria-selected="false">Students
+            &amp; Activities</button>
           <button type="button" class="gallery-tab" data-filter="campus" role="tab" aria-selected="false">School
             Campus</button>
-          <button type="button" class="gallery-tab" data-filter="activities" role="tab" aria-selected="false">Classroom
-            &amp; Activities</button>
-          <button type="button" class="gallery-tab" data-filter="celebrations" role="tab"
-            aria-selected="false">Celebrations</button>
         </div>
 
-        <!-- Gallery Grid -->
+        <!-- Gallery Grid (100% Authentic School Photographs Only) -->
         <div class="gallery__grid" id="galleryGrid">
-          <!-- Item 1: Real School Building -->
-          <div class="gallery-card" data-category="campus" data-reveal>
+          <!-- Item 1: Real School Students Photo -->
+          <div class="gallery-card" data-category="students" data-reveal>
+            <div class="gallery-card__inner" tabindex="0" role="button"
+              aria-label="View Sri Sai Blossom Kids students photograph" data-src="images/school-students-play-learn.jpeg"
+              data-caption="Our Blossom Kids Students — Joyful children in school uniforms celebrating friendship and learning at the 'Play &amp; Learn' campus wall mural.">
+              <img src="images/school-students-play-learn.jpeg" alt="Sri Sai Blossom Kids students holding hands happily at the Play and Learn wall mural"
+                class="gallery-card__img gallery-card__img--students" loading="lazy">
+              <div class="gallery-card__overlay">
+                <span class="gallery-card__zoom-icon" aria-hidden="true">🔍</span>
+                <span class="gallery-card__title">Play &amp; Learn With Friends</span>
+                <small class="gallery-card__tag">Our Happy Students</small>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 2: Real School Building Exterior -->
+          <div class="gallery-card" data-category="campus" data-reveal data-reveal-delay="100">
             <div class="gallery-card__inner" tabindex="0" role="button"
               aria-label="View actual school building exterior" data-src="images/school-building.jpeg"
               data-caption="Actual Sri Sai Blossom Kids School Building in Hosapete — Exterior view with colorful boundary mural, official signboard, and entrance.">
@@ -596,8 +608,8 @@
             </div>
           </div>
 
-          <!-- Item 2: Real Environment Day Board -->
-          <div class="gallery-card" data-category="activities" data-reveal data-reveal-delay="100">
+          <!-- Item 3: Real Environment Day Classroom Display -->
+          <div class="gallery-card" data-category="students" data-reveal data-reveal-delay="200">
             <div class="gallery-card__inner" tabindex="0" role="button"
               aria-label="View Environment Day Celebration display" data-src="images/school-activity-board.jpeg"
               data-caption="Environment Day Celebration Classroom Display — Handcrafted blackboard art, paper tree, potted plants, and learning toys at Sri Sai Blossom Kids.">
@@ -607,67 +619,22 @@
               <div class="gallery-card__overlay">
                 <span class="gallery-card__zoom-icon" aria-hidden="true">🔍</span>
                 <span class="gallery-card__title">Environment Day Celebration</span>
-                <small class="gallery-card__tag">Actual Classroom Activity</small>
+                <small class="gallery-card__tag">Classroom Activity Display</small>
               </div>
             </div>
           </div>
 
-          <!-- Item 3: Story Time & Foundational Reading -->
-          <div class="gallery-card" data-category="activities" data-reveal data-reveal-delay="200">
-            <div class="gallery-card__inner" tabindex="0" role="button" aria-label="View story reading activity photo"
-              data-src="images/gallery_reading.jpg"
-              data-caption="Story Time &amp; Foundational Reading — Fostering curiosity, early vocabulary, and a love of books.">
-              <img src="images/gallery_reading.jpg" alt="Children enjoying story time and colorful picture books"
-                class="gallery-card__img" loading="lazy">
+          <!-- Item 4: Real Official School Signboard -->
+          <div class="gallery-card" data-category="campus" data-reveal data-reveal-delay="300">
+            <div class="gallery-card__inner" tabindex="0" role="button"
+              aria-label="View official school signboard" data-src="images/school-signboard.png"
+              data-caption="Sri Sai Blossom Kids Official Signboard — Verified school details under Belaku Education Trust (R), College Road, Hosapete.">
+              <img src="images/school-signboard.png" alt="Sri Sai Blossom Kids official signboard in Hosapete"
+                class="gallery-card__img gallery-card__img--contain" loading="lazy">
               <div class="gallery-card__overlay">
                 <span class="gallery-card__zoom-icon" aria-hidden="true">🔍</span>
-                <span class="gallery-card__title">Story Time &amp; Reading</span>
-                <small class="gallery-card__tag">Classroom Activity</small>
-              </div>
-            </div>
-          </div>
-
-          <!-- Item 4: Celebrations & Cultural Joy -->
-          <div class="gallery-card" data-category="celebrations" data-reveal>
-            <div class="gallery-card__inner" tabindex="0" role="button" aria-label="View cultural celebration photo"
-              data-src="images/gallery_celebration.jpg"
-              data-caption="Cultural &amp; Festive Celebrations — Joyful children celebrating unity, tradition, and togetherness.">
-              <img src="images/gallery_celebration.jpg" alt="Children celebrating school annual day and festivities"
-                class="gallery-card__img" loading="lazy">
-              <div class="gallery-card__overlay">
-                <span class="gallery-card__zoom-icon" aria-hidden="true">🔍</span>
-                <span class="gallery-card__title">Cultural Celebrations</span>
-                <small class="gallery-card__tag">Celebrations</small>
-              </div>
-            </div>
-          </div>
-
-          <!-- Item 5: Creative Art & Handprints -->
-          <div class="gallery-card" data-category="activities" data-reveal data-reveal-delay="100">
-            <div class="gallery-card__inner" tabindex="0" role="button" aria-label="View art and craft photo"
-              data-src="images/gallery_art.jpg"
-              data-caption="Creative Art &amp; Craft — Children displaying colorful paper flower blooms and painted smiles.">
-              <img src="images/gallery_art.jpg" alt="Children holding paper flower crafts and showing painted hands"
-                class="gallery-card__img" loading="lazy">
-              <div class="gallery-card__overlay">
-                <span class="gallery-card__zoom-icon" aria-hidden="true">🔍</span>
-                <span class="gallery-card__title">Creative Art &amp; Craft</span>
-                <small class="gallery-card__tag">Classroom Activity</small>
-              </div>
-            </div>
-          </div>
-
-          <!-- Item 6: Safe Outdoor Play -->
-          <div class="gallery-card" data-category="activities" data-reveal data-reveal-delay="200">
-            <div class="gallery-card__inner" tabindex="0" role="button" aria-label="View outdoor playground photo"
-              data-src="images/gallery_outdoor.jpg"
-              data-caption="Joyful Outdoor Play — Safe play slides and physical movement under teacher care.">
-              <img src="images/gallery_outdoor.jpg" alt="Children enjoying safe outdoor play slide"
-                class="gallery-card__img" loading="lazy">
-              <div class="gallery-card__overlay">
-                <span class="gallery-card__zoom-icon" aria-hidden="true">🔍</span>
-                <span class="gallery-card__title">Safe Playground &amp; Games</span>
-                <small class="gallery-card__tag">Physical Play</small>
+                <span class="gallery-card__title">Official School Signboard</span>
+                <small class="gallery-card__tag">Campus Identity</small>
               </div>
             </div>
           </div>
