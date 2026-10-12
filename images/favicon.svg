@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <defs>
+    <linearGradient id="favSun" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFDD53"/>
+      <stop offset="100%" stop-color="#FF9E00"/>
+    </linearGradient>
+  </defs>
+  <circle cx="32" cy="32" r="30" fill="#FFFDF7" stroke="#FFD166" stroke-width="2"/>
+  <ellipse cx="32" cy="18" rx="7" ry="10" fill="#FF4D6D"/>
+  <ellipse cx="32" cy="18" rx="7" ry="10" fill="#FB5607" transform="rotate(72 32 32)"/>
+  <ellipse cx="32" cy="18" rx="7" ry="10" fill="#2EC4B6" transform="rotate(144 32 32)"/>
+  <ellipse cx="32" cy="18" rx="7" ry="10" fill="#0096C7" transform="rotate(216 32 32)"/>
+  <ellipse cx="32" cy="18" rx="7" ry="10" fill="#FFB703" transform="rotate(288 32 32)"/>
+  <circle cx="32" cy="32" r="11" fill="url(#favSun)"/>
+  <circle cx="28.5" cy="30.5" r="1.5" fill="#1D2A44"/>
+  <circle cx="35.5" cy="30.5" r="1.5" fill="#1D2A44"/>
+  <path d="M29.5 33.5 Q32 36.5 34.5 33.5" fill="none" stroke="#1D2A44" stroke-width="1.2" stroke-linecap="round"/>
+</svg>

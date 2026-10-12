@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFDF7"/>
+      <stop offset="100%" stop-color="#FEF5E7"/>
+    </linearGradient>
+    <linearGradient id="sunGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFDD53"/>
+      <stop offset="100%" stop-color="#FF9E00"/>
+    </linearGradient>
+    <linearGradient id="petalPink" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FF8FA3"/>
+      <stop offset="100%" stop-color="#FF4D6D"/>
+    </linearGradient>
+    <linearGradient id="petalBlue" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#70D6FF"/>
+      <stop offset="100%" stop-color="#0096C7"/>
+    </linearGradient>
+    <linearGradient id="petalGreen" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#99E2B4"/>
+      <stop offset="100%" stop-color="#2EC4B6"/>
+    </linearGradient>
+    <linearGradient id="petalYellow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFE066"/>
+      <stop offset="100%" stop-color="#FFB703"/>
+    </linearGradient>
+    <linearGradient id="petalOrange" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FF9F1C"/>
+      <stop offset="100%" stop-color="#FB5607"/>
+    </linearGradient>
+    <filter id="softGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="4" stdDeviation="5" flood-color="#FF9E00" flood-opacity="0.25"/>
+    </filter>
+  </defs>
+
+  <!-- Background Circle Badge -->
+  <circle cx="100" cy="100" r="92" fill="url(#bgGrad)" stroke="#FFE8A3" stroke-width="4"/>
+  <circle cx="100" cy="100" r="84" fill="none" stroke="#48CAE4" stroke-width="1.5" stroke-dasharray="4 6"/>
+
+  <!-- Blossom Petals -->
+  <g filter="url(#softGlow)">
+    <!-- Top Petal -->
+    <path d="M100 95 C90 60 110 32 100 24 C90 32 110 60 100 95" fill="url(#petalPink)" transform="rotate(0 100 95)"/>
+    <!-- Petal 1 -->
+    <path d="M100 95 C82 62 102 36 100 28 C90 36 106 62 100 95" fill="url(#petalPink)" transform="rotate(0 100 95)"/>
+    <!-- 5 Radial Blossoms -->
+    <ellipse cx="100" cy="55" rx="19" ry="26" fill="url(#petalPink)"/>
+    <ellipse cx="100" cy="55" rx="19" ry="26" fill="url(#petalOrange)" transform="rotate(72 100 95)"/>
+    <ellipse cx="100" cy="55" rx="19" ry="26" fill="url(#petalGreen)" transform="rotate(144 100 95)"/>
+    <ellipse cx="100" cy="55" rx="19" ry="26" fill="url(#petalBlue)" transform="rotate(216 100 95)"/>
+    <ellipse cx="100" cy="55" rx="19" ry="26" fill="url(#petalYellow)" transform="rotate(288 100 95)"/>
+  </g>
+
+  <!-- Blossom Center / Smiling Sun -->
+  <circle cx="100" cy="95" r="28" fill="url(#sunGrad)"/>
+  
+  <!-- Smiling Face -->
+  <!-- Eyes -->
+  <circle cx="91" cy="91" r="3.5" fill="#2B2D42"/>
+  <circle cx="109" cy="91" r="3.5" fill="#2B2D42"/>
+  <circle cx="92.5" cy="89.5" r="1.2" fill="#FFFFFF"/>
+  <circle cx="110.5" cy="89.5" r="1.2" fill="#FFFFFF"/>
+  <!-- Rosy Cheeks -->
+  <ellipse cx="86" cy="97" rx="3.5" ry="2" fill="#FF758F" opacity="0.6"/>
+  <ellipse cx="114" cy="97" rx="3.5" ry="2" fill="#FF758F" opacity="0.6"/>
+  <!-- Smile -->
+  <path d="M94 98 Q100 106 106 98" fill="none" stroke="#2B2D42" stroke-width="2.5" stroke-linecap="round"/>
+
+  <!-- Open Book Base (Education Foundation) -->
+  <g transform="translate(100, 150)">
+    <!-- Left Page -->
+    <path d="M-42 6 C-22 -8 -5 -2 0 4 C-5 16 -24 12 -42 22 Z" fill="#48CAE4"/>
+    <path d="M-40 8 C-22 -4 -5 1 0 6 C-5 18 -24 14 -40 24 Z" fill="#FFFFFF"/>
+    <!-- Right Page -->
+    <path d="M42 6 C22 -8 5 -2 0 4 C5 16 24 12 42 22 Z" fill="#0096C7"/>
+    <path d="M40 8 C22 -4 5 1 0 6 C5 18 24 14 40 24 Z" fill="#FFFFFF"/>
+    <!-- Bookmark ribbon -->
+    <path d="M0 6 L0 26 L4 23 L8 26 L8 6 Z" fill="#FF6B6B"/>
+  </g>
+
+  <!-- Little Joyful Stars -->
+  <path d="M38 42 L41 48 L47 49 L43 54 L44 60 L38 57 L33 60 L34 54 L30 49 L36 48 Z" fill="#FFD166" opacity="0.9"/>
+  <path d="M162 48 L164 53 L169 54 L165 58 L166 63 L161 60 L157 63 L158 58 L154 54 L159 53 Z" fill="#06D6A0" opacity="0.85"/>
+  <circle cx="152" cy="132" r="3" fill="#FF8FA3"/>
+  <circle cx="46" cy="128" r="3.5" fill="#70D6FF"/>
+</svg>
