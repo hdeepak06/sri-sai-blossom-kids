@@ -18,6 +18,12 @@ document.addEventListener('DOMContentLoaded', () => {
     if (introCompleted) return;
     introCompleted = true;
 
+    try {
+      sessionStorage.setItem('ssbk_intro_shown', 'true');
+    } catch (err) {
+      // Storage access gracefully handled
+    }
+
     // Start the cinematic 7-second zoom-out on the actual school building hero image
     if (heroImage) {
       heroImage.classList.add('zoom-active');
@@ -36,42 +42,44 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   };
 
-  if (logoIntro) {
+  const hasSeenIntro = sessionStorage.getItem('ssbk_intro_shown') === 'true';
+  const prefersReducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  if (hasSeenIntro || prefersReducedMotion) {
+    if (logoIntro) {
+      logoIntro.style.display = 'none';
+      logoIntro.setAttribute('aria-hidden', 'true');
+    }
+    document.body.classList.remove('intro-active');
+    if (heroImage) heroImage.classList.add('zoom-active');
+    introCompleted = true;
+  } else if (logoIntro) {
     document.body.classList.add('intro-active');
 
-    // Check prefers-reduced-motion
-    const prefersReducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (prefersReducedMotion) {
-      logoIntro.style.display = 'none';
-      document.body.classList.remove('intro-active');
-      if (heroImage) heroImage.classList.add('zoom-active');
-      introCompleted = true;
-    } else {
-      // Hold logo intro for 2.3 seconds, then smoothly reveal the homepage
-      const introTimer = setTimeout(revealHomepage, 2300);
+    // Hold logo intro for 2.3 seconds, then smoothly reveal the homepage
+    const introTimer = setTimeout(revealHomepage, 2300);
 
-      // Tap / click anywhere on intro screen to skip immediately if in a rush
-      logoIntro.addEventListener('click', () => {
+    // Tap / click anywhere on intro screen to skip immediately if in a rush
+    logoIntro.addEventListener('click', () => {
+      clearTimeout(introTimer);
+      revealHomepage();
+    });
+
+    if (skipIntroBtn) {
+      skipIntroBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
         clearTimeout(introTimer);
         revealHomepage();
       });
-
-      if (skipIntroBtn) {
-        skipIntroBtn.addEventListener('click', (e) => {
-          e.stopPropagation();
-          clearTimeout(introTimer);
-          revealHomepage();
-        });
-      }
-
-      // Keyboard support: Escape, Enter, or Space to dismiss early
-      window.addEventListener('keydown', (e) => {
-        if (!introCompleted && (e.key === 'Escape' || e.key === 'Enter' || e.key === ' ')) {
-          clearTimeout(introTimer);
-          revealHomepage();
-        }
-      });
     }
+
+    // Keyboard support: Escape, Enter, or Space to dismiss early
+    window.addEventListener('keydown', (e) => {
+      if (!introCompleted && (e.key === 'Escape' || e.key === 'Enter' || e.key === ' ')) {
+        clearTimeout(introTimer);
+        revealHomepage();
+      }
+    });
   } else {
     if (heroImage) heroImage.classList.add('zoom-active');
   }
@@ -563,6 +571,7 @@ ${nameVal}`;
       if (enquirySuccessBox) {
         enquirySuccessBox.style.display = 'block';
         enquirySuccessBox.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        showCartoonFeedback(enquirySuccessBox, 'star', "Great choice! Enquiry prepared! ⭐");
       }
 
       // Automatically trigger email client
@@ -600,4 +609,167 @@ ${nameVal}`;
       }
     });
   }
+
+  // =========================================================================
+  // 7. Small Animated Cartoon Popup Feedback System
+  // Pure inline SVG vector characters: Smiling Teddy Bear, Happy Star, Friendly Bunny
+  // Non-blocking, viewport-clamped, accessible, mobile-optimized
+  // =========================================================================
+  const CARTOON_AVATARS = {
+    teddy: `
+      <svg viewBox="0 0 40 40" width="36" height="36" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <circle cx="9" cy="11" r="7" fill="#C68A4C"/>
+        <circle cx="9" cy="11" r="4" fill="#F8B4B4"/>
+        <circle cx="31" cy="11" r="7" fill="#C68A4C"/>
+        <circle cx="31" cy="11" r="4" fill="#F8B4B4"/>
+        <circle cx="20" cy="22" r="15" fill="#DDA15E"/>
+        <circle cx="11" cy="24" r="3" fill="#F8B4B4" opacity="0.85"/>
+        <circle cx="29" cy="24" r="3" fill="#F8B4B4" opacity="0.85"/>
+        <ellipse cx="20" cy="24.5" rx="7" ry="5.5" fill="#FFF3D6"/>
+        <circle cx="15" cy="19" r="2.2" fill="#28251F"/>
+        <circle cx="14.3" cy="18.3" r="0.8" fill="#FFFFFF"/>
+        <circle cx="25" cy="19" r="2.2" fill="#28251F"/>
+        <circle cx="24.3" cy="18.3" r="0.8" fill="#FFFFFF"/>
+        <ellipse cx="20" cy="22.5" rx="2.5" ry="1.8" fill="#583101"/>
+        <path d="M17.5 25.5 Q20 28 22.5 25.5" stroke="#583101" stroke-width="1.6" stroke-linecap="round" fill="none"/>
+      </svg>
+    `,
+    star: `
+      <svg viewBox="0 0 40 40" width="36" height="36" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <polygon points="20,2 25,14 38,15 28,24 31,37 20,30 9,37 12,24 2,15 15,14" fill="#FFC93C" stroke="#D4AF37" stroke-width="1.5" stroke-linejoin="round"/>
+        <circle cx="14" cy="22" r="2.2" fill="#FF7B7B" opacity="0.85"/>
+        <circle cx="26" cy="22" r="2.2" fill="#FF7B7B" opacity="0.85"/>
+        <circle cx="16" cy="18" r="1.8" fill="#28251F"/>
+        <circle cx="15.5" cy="17.5" r="0.6" fill="#FFFFFF"/>
+        <circle cx="24" cy="18" r="1.8" fill="#28251F"/>
+        <circle cx="23.5" cy="17.5" r="0.6" fill="#FFFFFF"/>
+        <path d="M17.5 22.5 Q20 25.5 22.5 22.5" stroke="#28251F" stroke-width="1.6" stroke-linecap="round" fill="none"/>
+      </svg>
+    `,
+    bunny: `
+      <svg viewBox="0 0 40 40" width="36" height="36" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <ellipse cx="14" cy="11" rx="4.5" ry="10" fill="#FFFFFF" stroke="#E2D9C8" stroke-width="1"/>
+        <ellipse cx="14" cy="11" rx="2.5" ry="7" fill="#F8B4B4"/>
+        <ellipse cx="26" cy="11" rx="4.5" ry="10" fill="#FFFFFF" stroke="#E2D9C8" stroke-width="1"/>
+        <ellipse cx="26" cy="11" rx="2.5" ry="7" fill="#F8B4B4"/>
+        <circle cx="20" cy="24" r="13" fill="#FFFFFF" stroke="#E2D9C8" stroke-width="1"/>
+        <circle cx="12" cy="26" r="2.5" fill="#F8B4B4" opacity="0.85"/>
+        <circle cx="28" cy="26" r="2.5" fill="#F8B4B4" opacity="0.85"/>
+        <circle cx="15" cy="22" r="1.8" fill="#28251F"/>
+        <circle cx="14.4" cy="21.4" r="0.6" fill="#FFFFFF"/>
+        <circle cx="25" cy="22" r="1.8" fill="#28251F"/>
+        <circle cx="24.4" cy="21.4" r="0.6" fill="#FFFFFF"/>
+        <polygon points="18.5,25 21.5,25 20,27" fill="#FF85A1"/>
+        <path d="M17.5 27.5 Q18.7 29.5 20 27.5 Q21.3 29.5 22.5 27.5" stroke="#28251F" stroke-width="1.4" stroke-linecap="round" fill="none"/>
+      </svg>
+    `
+  };
+
+  let currentCartoonPopup = null;
+  let cartoonDismissTimer = null;
+
+  const showCartoonFeedback = (targetEl, characterKey, message) => {
+    // Check reduced motion preference
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      return;
+    }
+
+    if (currentCartoonPopup) {
+      currentCartoonPopup.remove();
+      currentCartoonPopup = null;
+      if (cartoonDismissTimer) clearTimeout(cartoonDismissTimer);
+    }
+
+    const avatarSvg = CARTOON_AVATARS[characterKey] || CARTOON_AVATARS.teddy;
+    const popup = document.createElement('div');
+    popup.className = 'cartoon-popup';
+    popup.setAttribute('role', 'status');
+    popup.setAttribute('aria-live', 'polite');
+    popup.innerHTML = `
+      <div class="cartoon-popup__avatar">${avatarSvg}</div>
+      <span class="cartoon-popup__text">${message}</span>
+    `;
+
+    document.body.appendChild(popup);
+    currentCartoonPopup = popup;
+
+    // Viewport-safe coordinates calculation
+    if (targetEl && targetEl.getBoundingClientRect) {
+      const rect = targetEl.getBoundingClientRect();
+      const popupRect = popup.getBoundingClientRect();
+      const pWidth = popupRect.width || 220;
+      const pHeight = popupRect.height || 54;
+
+      let top = rect.top - pHeight - 14;
+      // If placed too close to the top, flip below the target
+      if (top < 12) {
+        top = rect.bottom + 14;
+      }
+      // If it still overflows bottom
+      if (top + pHeight > window.innerHeight - 12) {
+        top = window.innerHeight - pHeight - 16;
+      }
+
+      let left = rect.left + (rect.width / 2) - (pWidth / 2);
+      // Horizontal clamping inside viewport
+      left = Math.max(12, Math.min(window.innerWidth - pWidth - 12, left));
+
+      popup.style.top = `${Math.round(top)}px`;
+      popup.style.left = `${Math.round(left)}px`;
+    }
+
+    // Auto dismiss after 1.8 seconds
+    cartoonDismissTimer = setTimeout(() => {
+      if (currentCartoonPopup === popup) {
+        popup.remove();
+        currentCartoonPopup = null;
+      }
+    }, 1800);
+  };
+
+  // Wire non-blocking cartoon feedback to buttons
+  const attachCartoonInteractions = () => {
+    const candidates = document.querySelectorAll('.btn, .float-btn, .prog-enquire-btn, .phone-chip, .phone-box__btn, .contact-phone-item, .back-to-top');
+    candidates.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const href = btn.getAttribute('href') || '';
+        const text = (btn.textContent || '').trim().toLowerCase();
+
+        // 1. WhatsApp Action
+        if (btn.classList.contains('float-btn--whatsapp') || href.includes('wa.me')) {
+          showCartoonFeedback(btn, 'teddy', "Let's connect on WhatsApp! 💬");
+        }
+        // 2. Phone Call Action
+        else if (btn.classList.contains('float-btn--call') || href.startsWith('tel:') || btn.classList.contains('phone-chip') || btn.classList.contains('phone-box__btn') || btn.classList.contains('contact-phone-item')) {
+          showCartoonFeedback(btn, 'bunny', "Calling our friendly school! 📞");
+        }
+        // 3. Email Action
+        else if (btn.classList.contains('float-btn--email') || href.startsWith('mailto:')) {
+          showCartoonFeedback(btn, 'star', "Let's connect with our team! ✉️");
+        }
+        // 4. Program specific enquiry
+        else if (btn.classList.contains('prog-enquire-btn') || btn.dataset.program) {
+          showCartoonFeedback(btn, 'star', "Great choice! Ready to learn! ⭐");
+        }
+        // 5. Admissions enquiry
+        else if (href === '#admissions' || text.includes('enquire') || text.includes('admission')) {
+          showCartoonFeedback(btn, 'teddy', "Yay! Let's learn together! 🎒");
+        }
+        // 6. Explore school / campus visit
+        else if (href === '#about' || text.includes('explore') || text.includes('visit')) {
+          showCartoonFeedback(btn, 'bunny', "Ready to explore our school? 🏫");
+        }
+        // 7. Back to top
+        else if (btn.id === 'backToTopBtn') {
+          showCartoonFeedback(btn, 'star', "Thank you for visiting! 🌸");
+        }
+        // 8. Other button actions
+        else {
+          showCartoonFeedback(btn, 'teddy', "Yay! Let's learn together! 🎒");
+        }
+      });
+    });
+  };
+
+  attachCartoonInteractions();
 });
