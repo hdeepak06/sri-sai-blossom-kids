@@ -1,7 +1,7 @@
 /**
  * Sri Sai Blossom Kids — Official Website JavaScript
  * Pure Vanilla JavaScript: Robust, Accessible, Maintainable
- * Belaku Education Trust (R), Hosapete, Karnataka
+ * Belaku Education Trust (R), Hassan, Karnataka
  */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -82,14 +82,14 @@ document.addEventListener('DOMContentLoaded', () => {
   const SCHOOL_CONFIG = {
     schoolName: 'Sri Sai Blossom Kids',
     trust: 'Belaku Education Trust (R)',
-    location: 'Hosapete, Karnataka, India',
+    location: 'Hassan, Karnataka, India',
     email: 'nithi892016@gmail.com',
     primaryPhone: '8217689236',
     phones: ['8217689236', '9880001881', '8050263538', '7204887580'],
-    subject: 'Admission Enquiry - Sri Sai Blossom Kids',
-    address: 'Sai Complex, 1st Floor, College Road, Near Ambedkar Circle, Hosapete – 583201',
-    mapCoords: [15.2689, 76.3909], // College Road, Hosapete
-    zoomLevel: 15
+    subject: 'Admission Enquiry - Sri Sai Blossom Kids Hassan',
+    address: 'Opposite Malnadu Engineering College, Vidyuth Nagar, Hassan – 573202',
+    mapCoords: [13.0228, 76.1035], // Opposite MCE, Vidyuth Nagar, Hassan
+    zoomLevel: 16
   };
 
   // Dynamic Copyright Year

@@ -1,9 +1,9 @@
 # Sri Sai Blossom Kids — Official Website
 
 > **Belaku Education Trust (R)**  
-> Hosapete, Vijayanagara District, Karnataka, India
+> Hassan, Karnataka, India
 
-Official website for **Sri Sai Blossom Kids**, a premier kids' school and early education institution in Hosapete offering:
+Official website for **Sri Sai Blossom Kids**, a premier kids' school and early education institution in Hassan offering:
 - 🏡 **Day Care** — Safe, loving, and comfortable supervision.
 - 🧸 **Baby Sitting** — Nurturing attention and hygienic care for toddlers.
 - ✏️ **L.K.G. (Lower Kindergarten)** — Phonics, rhymes, numbers, and activity-based learning.
@@ -21,7 +21,7 @@ Also offering under Belaku Education Trust (R): Tuitions (1st–10th Std), Achie
   - 💬 **WhatsApp:** Direct chat with prefilled admission enquiry message (+91 8217689236).
   - 📞 **Call:** Tap to call line (+91 8217689236).
   - ✉️ **Email:** Instant enquiry draft to `nithi892016@gmail.com`.
-- **Classroom Activities & Gallery:** Environment Day display board, campus photos, and full-screen lightbox modal.
+- **Classroom Activities & Gallery:** Environment Day display board, authentic student moments, campus photos, and full-screen lightbox modal.
 - **Interactive Admissions Enquiry Form:** Real-time client-side validation, clean error feedback, and preformatted email draft creation.
 - **Pure Vanilla Stack:** Built strictly with semantic HTML5, CSS3, and Vanilla JavaScript with zero external frameworks.
 - **Mobile-First & Accessible:** Fully responsive across all device viewports (320px to 1440px+) with `prefers-reduced-motion` compliance.
@@ -30,7 +30,7 @@ Also offering under Belaku Education Trust (R): Tuitions (1st–10th Std), Achie
 
 ## 📍 School Address & Contact
 
-- **Address:** Sai Complex, 1st Floor, College Road, Near Ambedkar Circle, Hosapete – 583201, Karnataka.
+- **Address:** Opposite Malnadu Engineering College, Vidyuth Nagar, Hassan – 573202, Karnataka, India.
 - **Contact Numbers:** 8217689236 / 9880001881 / 8050263538 / 7204887580
 - **Email:** [nithi892016@gmail.com](mailto:nithi892016@gmail.com)
 
