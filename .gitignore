@@ -1,0 +1,6 @@
+# Archives & Temporary files
+sri-sai-blossom-images.zip
+sri-sai-blossom-images/
+.DS_Store
+Thumbs.db
+*.log
